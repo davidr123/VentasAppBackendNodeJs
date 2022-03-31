@@ -7,6 +7,11 @@ const app= express();
 
 //Configurar cors
 app.use(cors())
+
+
+//Lectura y paraseo del body
+
+app.use(express.json());
 //Base de datos
 dbConnection();
 //MONGO CREDENCIALES
@@ -16,13 +21,13 @@ dbConnection();
 
 
 //Rutas
-app.get( '/', (req, res)=>{
-    res.json({
-        ok:true,
-        msg: 'Hola mundo'
-    })
+app.use('/api/cliente', require('./routes/cliente'));
 
-});
+
+
+//Rutas Vendedor
+app.use('/api/vendedor', require('./routes/vendedor'));
+app.use('/api/login', require('./routes/authvendedor'));
 
 app.listen(process.env.PORT, ()=>{
     console.log('Servidor corrriendo en' + process.env.PORT);
