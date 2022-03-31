@@ -29,6 +29,12 @@ app.use('/api/cliente', require('./routes/cliente'));
 app.use('/api/vendedor', require('./routes/vendedor'));
 app.use('/api/login', require('./routes/authvendedor'));
 
+
+//Productos
+
+app.use('/api/productos', require('./routes/productos'));
+ app.use('/api/busqueda', require('./routes/busquedaproducto'));
+
 app.listen(process.env.PORT, ()=>{
     console.log('Servidor corrriendo en' + process.env.PORT);
 });

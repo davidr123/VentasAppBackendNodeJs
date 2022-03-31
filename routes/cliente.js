@@ -30,6 +30,7 @@ router.post('/',
         check('email','El email es obligatorio').isEmail(),
         check('genero', 'El genero es obligatorio').not().isEmpty(),
         check('direccion', 'La direccion es obligatorio').not().isEmpty(),
+     
         validarCampos
     ],
     actualizarCliente);

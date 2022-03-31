@@ -32,7 +32,15 @@ const ClienteSchema = Schema({
     direccion:{
         type:String,
         required:true,
+    },
+
+    producto:{
+        required:true,
+        type:Schema.Types.ObjectId,
+        ref:'Producto'
     }
+
+  
 
 
 });

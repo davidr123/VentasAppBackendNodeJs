@@ -1,5 +1,6 @@
 const {response} = require('express');
 const res = require('express/lib/response');
+const { generarJWT } = require('../helpers/jwt');
 
 const Cliente = require('../models/cliente');
 
@@ -7,7 +8,8 @@ const Cliente = require('../models/cliente');
 
 const getCliente= async(req, res)=>{
 
-    const cliente = await Cliente.find({}, 'nombre cedula email');
+    const cliente = await Cliente.find()
+                                        .populate('producto', 'descripcion codigo cantidad precio');
     res.json({
         ok:true,
         cliente,
@@ -34,14 +36,24 @@ const crearClinte= async( req, res= response)=>{
         });
     }
 
-    const cliente= new Cliente( req.body );
+    const uid= req.uid
+    const cliente= new Cliente( {
+         producto:uid,
+        ...req.body });
+
+
 
     await cliente.save();
+    
+    const token =await generarJWT(cliente.id);
    
    
        res.json({
            ok:true,
-           cliente
+           cliente,
+           uid:req.uid,
+           token,
+          
        });
    
        
@@ -91,7 +103,8 @@ const actualizarCliente= async(req, res= response)=>{
 
         res.json({
             ok: true,
-            clienteActualizado
+            clienteActualizado,
+            uid:req.uid
         });
         
     } catch (error) {
@@ -125,7 +138,8 @@ const actualizarCliente= async(req, res= response)=>{
             
             res.json({
                 ok:true,
-                msg:'Cliente Eliminado'
+                msg:'Cliente Eliminado',
+                uid:req.uid
 
             });
 
