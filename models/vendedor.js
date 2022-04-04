@@ -4,8 +4,7 @@ const VendedorSchema = Schema({
 
     nombre:{
         type:String,
-        required:true,
-
+        
 
     },
 
@@ -22,13 +21,13 @@ const VendedorSchema = Schema({
 
     cedula:{
         type:String,
-        required:true,
+       
         unique:true,
     },
 
     email:{
         type:String,
-        required:true,
+     
         unique:true,
         
 
@@ -37,12 +36,16 @@ const VendedorSchema = Schema({
 
     genero:{
         type:String,
-        required:true,
+        
     },
 
     direccion:{
         type:String,
-        required:true,
+        
+    },
+
+    img:{
+        type:String,
     }
 
 

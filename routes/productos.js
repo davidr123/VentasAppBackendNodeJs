@@ -32,5 +32,7 @@ validarCampos
 
   router.delete('/:id' ,BorrarProductos);
 
+  // router.get('/:nombre' ,ProductosbyNombre);
+
 
   module.exports= router;

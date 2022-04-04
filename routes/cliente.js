@@ -11,6 +11,7 @@ router.get('/', validarJWT ,getCliente);
 router.post('/', 
 
    [
+    validarJWT,
    check('nombre', 'El nombre es obligatorio').not().isEmpty(),
    check('cedula', 'La cedula es obligatorio').not().isEmpty(),
    check('email','El email es obligatorio').isEmail(),

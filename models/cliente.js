@@ -34,11 +34,11 @@ const ClienteSchema = Schema({
         required:true,
     },
 
-    producto:{
-        required:true,
-        type:Schema.Types.ObjectId,
-        ref:'Producto'
-    }
+    // producto:{
+        
+    //     type:Schema.Types.ObjectId,
+    //     ref:'Producto'
+    // }
 
   
 

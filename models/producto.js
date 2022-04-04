@@ -29,11 +29,11 @@ const ProductoSchema = Schema({
         required:true,
     },
 
-    vendedor:{
-        type:Schema.Types.ObjectId,
-        ref:'Vendedor'
+    // vendedor:{
+    //     type:Schema.Types.ObjectId,
+    //     ref:'Vendedor'
 
-    },
+    // },
 
     cliente:{
         required:true,

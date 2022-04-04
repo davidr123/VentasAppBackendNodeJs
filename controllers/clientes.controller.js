@@ -52,7 +52,7 @@ const crearClinte= async( req, res= response)=>{
            ok:true,
            cliente,
            uid:req.uid,
-           token,
+            token,
           
        });
    

@@ -16,7 +16,9 @@ try {
  const[productos, total]=  await Promise.all([
         Producto
         .find().populate('cliente', 'cedula nombre')
-        .skip(desde),
+        .skip(desde).
+        limit(8),
+     
 
         Producto.count()
 
@@ -37,6 +39,8 @@ try {
     
 }
 }
+
+
 
 
 const CrearProductos =async(req, res= response)=>{

@@ -24,14 +24,14 @@ const crearVendedor= async( req, res= response)=>{
  
     try {
  
-     const exiteUsuario = await Vendedor.findOne({usuario});
+     const existeVendedor = await Vendedor.findOne({usuario});
    
  
  
-     if(exiteUsuario){
+     if(existeVendedor){
          return res.status(400).json({
              ok:false,
-             msg:'El usuario ya esta registrado'
+             msg:'El vendedor ya esta registrado'
          });
      }
  

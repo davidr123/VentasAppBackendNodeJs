@@ -13,8 +13,8 @@ router.get('/' ,getVendedor);
 router.post('/',
 
    [
-   check('nombre', 'El nombre es obligatorio').not().isEmpty(),
-   check('usuario', 'La cedula es obligatorio').not().isEmpty(),
+   check('usuario', 'El usuario es obligatorio').not().isEmpty(),
+   check('password', 'El password es obligatorio').not().isEmpty(),
 
    validarCampos,
     

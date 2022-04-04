@@ -22,7 +22,7 @@ dbConnection();
 
 //Rutas
 app.use('/api/cliente', require('./routes/cliente'));
-
+app.use('/api/uploads', require('./routes/uploads'));
 
 
 //Rutas Vendedor
