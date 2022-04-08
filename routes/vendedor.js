@@ -2,7 +2,7 @@
 const {Router}= require('express');
 const {check} = require('express-validator');
 const {validarCampos}= require('../middelwares/validar-campos')
-const {getVendedor,crearVendedor}= require('../controllers/vendedor.controllers');
+const {getVendedor,crearVendedor, getVendedorbyId}= require('../controllers/vendedor.controllers');
 // const { validarJWT } = require('../middelwares/validar-jwt');
 
 const router = Router();
@@ -20,6 +20,11 @@ router.post('/',
     
   ] ,
   crearVendedor);
+
+  router.get('/:id' ,getVendedorbyId);
+
+
+
 
 
   module.exports= router;

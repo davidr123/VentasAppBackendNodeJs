@@ -3,6 +3,7 @@ const res = require('express/lib/response');
 const bcrypt= require('bcryptjs');
 
 const Vendedor = require('../models/vendedor');
+const Cliente = require('../models/cliente');
 const { generarJWT } = require('../helpers/jwt');
 
 
@@ -65,10 +66,49 @@ const crearVendedor= async( req, res= response)=>{
  
  
  }
+
+
+ const getVendedorbyId=async(req, res=response)=>{
+
+    const id= req.params.id;
+
+    try {
+
+        const vendedor= await Vendedor.findById(id)
+
+
+    res.json({
+        ok:true,
+        vendedor
+    });
+
+        
+    } catch (error) {
+          console.log(error);
+        res.json({
+            ok:false,
+            msg:'Hable con el administrador'
+        });
+    
+        
+    }
+
+    
+
+
+}
+
+
+
+
+
+
+
  
 
 
 module.exports={
     getVendedor,
-    crearVendedor
+    crearVendedor,
+    getVendedorbyId
 }

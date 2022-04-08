@@ -29,11 +29,17 @@ const ProductoSchema = Schema({
         required:true,
     },
 
-    // vendedor:{
-    //     type:Schema.Types.ObjectId,
-    //     ref:'Vendedor'
+    iva:{
 
-    // },
+        type:Number,
+        default:0.12
+    },
+
+    vendedor:{
+        type:Schema.Types.ObjectId,
+        ref:'Vendedor'
+
+    },
 
     cliente:{
         required:true,

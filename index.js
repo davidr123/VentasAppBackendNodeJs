@@ -35,6 +35,13 @@ app.use('/api/login', require('./routes/authvendedor'));
 app.use('/api/productos', require('./routes/productos'));
  app.use('/api/busqueda', require('./routes/busquedaproducto'));
 
+ //HISTORIAL CLIENTE
+ app.use('/api/historialcliente', require('./routes/historialcliente'));
+
+ //PEDIDO
+ app.use('/api/pedido', require('./routes/pedido'));
+
+
 app.listen(process.env.PORT, ()=>{
     console.log('Servidor corrriendo en' + process.env.PORT);
 });

@@ -34,11 +34,20 @@ const ClienteSchema = Schema({
         required:true,
     },
 
-    // producto:{
+    vendedor:{
         
-    //     type:Schema.Types.ObjectId,
-    //     ref:'Producto'
-    // }
+        type:Schema.Types.ObjectId,
+        ref:'Vendedor'
+    },
+
+    // producto:[{
+    //     id: {
+    //         type:Schema.Types.ObjectId,
+    //         ref: 'productos',
+    //         required: 'Campo id producto es requerido.'
+    //     },
+      
+    // }]
 
   
 
@@ -46,8 +55,8 @@ const ClienteSchema = Schema({
 });
 
 ClienteSchema.method('toJSON', function(){
-   const {__v, _id, ...object} =this.toObject();
-    object.uid= _id;
+   const {__v, ...object} =this.toObject();
+   
    return object;
 })
 module.exports =model('Cliente', ClienteSchema);

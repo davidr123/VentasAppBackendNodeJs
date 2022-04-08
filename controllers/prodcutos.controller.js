@@ -15,7 +15,7 @@ try {
 
  const[productos, total]=  await Promise.all([
         Producto
-        .find().populate('cliente', 'cedula nombre')
+        .find().populate('cliente')
         .skip(desde).
         limit(8),
      
