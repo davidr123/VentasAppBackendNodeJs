@@ -1,5 +1,6 @@
 const express= require('express');
 require('dotenv').config();
+const path = require('path');
 const cors = require('cors')
 const {dbConnection} = require('./database/config');
 
@@ -40,6 +41,13 @@ app.use('/api/productos', require('./routes/productos'));
 
  //PEDIDO
  app.use('/api/pedido', require('./routes/pedido'));
+
+
+ //Ultimo cambio
+app.get('*', (req, res)=>{
+    res.sendFile(path.resolve(__dirname, 'public/index.html'));
+});
+
 
 
 app.listen(process.env.PORT, ()=>{
